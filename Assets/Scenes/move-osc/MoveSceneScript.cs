@@ -41,13 +41,14 @@ public class MoveSceneScript : MonoBehaviour
     // Start is called before the first frame update
     async void Start()
     {
-                   // Bluetoothデバイスを検索
-            var peripheral = await new NearestScanner().Scan();
-            // デバイスへ接続してCube変数を生成
-            cube = await new CubeConnecter().Connect(peripheral); 
+            //        // Bluetoothデバイスを検索
+            // var peripheral = await new NearestScanner().Scan();
+            // // デバイスへ接続してCube変数を生成
+            // cube = await new CubeConnecter().Connect(peripheral); 
 
 
-            cubeManager = new CubeManager();
+          // CubeManagerからモジュールを間接利用した場合:
+        cubeManager = new CubeManager();
         await cubeManager.MultiConnect(2);
     }
 
@@ -55,10 +56,20 @@ public class MoveSceneScript : MonoBehaviour
     void Update()
     {
          // Cube変数の生成が完了するまで早期リターン
-            if (null == cube) { return; }
+  
             if(speed != 0 ){
-            cube.Move(speed, speed, 200);
-            speed = 0;
+
+                 foreach(var cube in cubeManager.cubes)
+        {
+            if (cubeManager.IsControllable(cube))
+            {
+                         cube.Move(speed, speed, 200);
+                          
+
+            }
+        }
+           speed = 0;
+        
             }
     }
 }

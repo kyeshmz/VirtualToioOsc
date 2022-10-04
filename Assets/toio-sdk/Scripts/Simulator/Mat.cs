@@ -15,7 +15,7 @@ namespace toio.Simulator
             simple_playmat = 2,
             developer = 3,
             gesundroid = 4,
-            custom = 99  // 座標範囲をカスタマイズ
+            custom = 5,  // 座標範囲をカスタマイズ
         }
 
         public static readonly string[] MatTypeNames = new string[]
@@ -97,7 +97,9 @@ namespace toio.Simulator
         {
             switch (matType){
                 case MatType.toio_collection_front:
-                    return new RectInt(45, 45, 410, 410);
+                    return new RectInt(34, 251, 949, 466);
+
+                    // return new RectInt(45, 45, 410, 410);
                 case MatType.toio_collection_back:
                     return new RectInt(545, 45, 410, 410);
                 case MatType.simple_playmat:
@@ -121,8 +123,9 @@ namespace toio.Simulator
                 case MatType.gesundroid:
                     return new RectInt(1050, 45, 410, 410);
                 case MatType.custom:
-                    Debug.LogError("Custom MatType not supported in this method.");
-                    return new RectInt(0, 0, 0, 0);
+                    // Debug.LogError("Custom MatType not supported in this method.");
+                    // return new RectInt(0, 0, 0, 0);
+                    return new RectInt(34, 251, 949, 466);
             }
             throw new System.Exception("matType out of range.");
         }

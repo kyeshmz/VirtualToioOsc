@@ -50,6 +50,8 @@ public class MoveSceneScript : MonoBehaviour
           // CubeManagerからモジュールを間接利用した場合:
         cubeManager = new CubeManager();
         await cubeManager.MultiConnect(2);
+        //initToStartPosition();
+        initToResetPosition();
     }
 
     // Update is called once per frame
@@ -58,18 +60,32 @@ public class MoveSceneScript : MonoBehaviour
          // Cube変数の生成が完了するまで早期リターン
   
             if(speed != 0 ){
-
-                 foreach(var cube in cubeManager.cubes)
-        {
-            if (cubeManager.IsControllable(cube))
-            {
-                         cube.Move(speed, speed, 200);
+                cubeManager.cubes[0].Move(speed, speed, 200);
+                 cubeManager.cubes[1].Move( -speed, -speed, 200);
+        
+        //          foreach(var cube in cubeManager.cubes)
+        // {
+        //     if (cubeManager.IsControllable(cube))
+        //     {
+        //                  cube.Move(speed, speed, 200);
                           
 
-            }
-        }
+        //     }
+        // }
            speed = 0;
         
             }
+    }
+
+    void initToStartPosition(){
+        cubeManager.cubes[0].TargetMove(113, 360, 0,0,0,Cube.TargetMoveType.RoundBeforeMove);
+        cubeManager.cubes[1].TargetMove(870,360,180,0,0, Cube.TargetMoveType.RoundBeforeMove);
+       
+    }
+
+    void initToResetPosition()
+    {
+        cubeManager.cubes[0].TargetMove(492, 307, 0, 0, 0, Cube.TargetMoveType.RoundBeforeMove);
+        cubeManager.cubes[1].TargetMove(492, 414, 180, 0, 0, Cube.TargetMoveType.RoundBeforeMove);
     }
 }

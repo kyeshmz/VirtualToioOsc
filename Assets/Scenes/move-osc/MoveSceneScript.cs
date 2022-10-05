@@ -15,7 +15,9 @@ public class MoveSceneScript : MonoBehaviour
     public int speed;
         CubeManager cubeManager;
 
-     void OnEnable()
+    public Transform mainCamera;
+
+    void OnEnable()
     {
         server = new OscServer(port);
         server.MessageDispatcher.AddCallback(
@@ -48,10 +50,10 @@ public class MoveSceneScript : MonoBehaviour
 
 
           // CubeManagerからモジュールを間接利用した場合:
-        cubeManager = new CubeManager();
+        cubeManager = new CubeManager(ConnectType.Simulator);
         await cubeManager.MultiConnect(2);
-        //initToStartPosition();
-        initToResetPosition();
+        initToStartPosition();
+        //initToResetPosition();
     }
 
     // Update is called once per frame
@@ -75,11 +77,20 @@ public class MoveSceneScript : MonoBehaviour
            speed = 0;
         
             }
+        //mainCamera.transform.position = new Vector3(cubeManager.cubes[0]., cubeManager.cubes[0].pos.y, 0);
     }
 
     void initToStartPosition(){
+        //-0.5048941
+        //3.107823e-06
+        //-0.001395815
+        //rot
+        //-0.013
+        //93.046
+        //0.013
+       
         cubeManager.cubes[0].TargetMove(113, 360, 0,0,0,Cube.TargetMoveType.RoundBeforeMove);
-        cubeManager.cubes[1].TargetMove(870,360,180,0,0, Cube.TargetMoveType.RoundBeforeMove);
+        //cubeManager.cubes[1].TargetMove(870,360,180,0,0, Cube.TargetMoveType.RoundBeforeMove);
        
     }
 

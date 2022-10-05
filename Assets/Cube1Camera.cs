@@ -6,7 +6,9 @@ public class Cube1Camera : MonoBehaviour
 {
 
     public Transform mainCamera;
+    public GameObject player;
     void Start()
+
     {
         mainCamera = Camera.main.transform.parent.transform;
     }

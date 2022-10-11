@@ -442,7 +442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderStreaming: {fileID: 323461909}
-  inputReceiver: {fileID: 0}
   videoStreamSender: {fileID: 1092837021}
 --- !u!114 &323461908
 MonoBehaviour:
@@ -744,6 +743,7 @@ GameObject:
   - component: {fileID: 1092837023}
   - component: {fileID: 1092837021}
   - component: {fileID: 1092837022}
+  - component: {fileID: 1092837026}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -875,6 +875,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 20.146, y: 195.092, z: 0.001}
+--- !u!114 &1092837026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092837020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7baff4725eb40a9884b2e960678441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPosition: {fileID: 1315602770}
 --- !u!4 &1315602770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5905128642102656339, guid: 8bd6ea65c87536d49ac5878fd9e412fe, type: 3}

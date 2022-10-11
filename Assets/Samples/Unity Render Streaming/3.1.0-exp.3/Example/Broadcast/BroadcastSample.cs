@@ -18,7 +18,7 @@ namespace Unity.RenderStreaming.Samples
     class BroadcastSample : MonoBehaviour
     {
         [SerializeField] RenderStreaming renderStreaming;
-        [SerializeField] InputReceiver inputReceiver;
+        // [SerializeField] InputReceiver inputReceiver;
         [SerializeField] VideoStreamSender videoStreamSender;
 
         private void Awake()
@@ -40,13 +40,13 @@ namespace Unity.RenderStreaming.Samples
                 hardwareEncoder: RenderStreamingSettings.EnableHWCodec,
                 signaling: RenderStreamingSettings.Signaling);
 
-            inputReceiver.OnStartedChannel += OnStartedChannel;
+            // inputReceiver.OnStartedChannel += OnStartedChannel;
         }
 
-        void OnStartedChannel(string connectionId)
-        {
-            inputReceiver.SetInputRange(videoStreamSender.streamingSize);
-            inputReceiver.SetEnableInputPositionCorrection(true);
-        }
+        // void OnStartedChannel(string connectionId)
+        // {
+        //     inputReceiver.SetInputRange(videoStreamSender.streamingSize);
+        //     inputReceiver.SetEnableInputPositionCorrection(true);
+        // }
     }
 }

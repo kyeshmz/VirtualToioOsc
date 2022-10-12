@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414726, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: developerMatType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7234786561329697987, guid: cdb3cb207738d3b45ade7abf174b8f7a, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 2920e7b3e9b782ac18ee962d6a194244, type: 2}
     - target: {fileID: 7271845493742930369, guid: cdb3cb207738d3b45ade7abf174b8f7a, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -359,7 +363,6 @@ GameObject:
   m_Component:
   - component: {fileID: 88990975}
   - component: {fileID: 88990977}
-  - component: {fileID: 88990976}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -382,14 +385,6 @@ Transform:
   m_Father: {fileID: 1980926925}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &88990976
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88990974}
-  m_Enabled: 1
 --- !u!20 &88990977
 Camera:
   m_ObjectHideFlags: 0
@@ -892,7 +887,6 @@ GameObject:
   m_Component:
   - component: {fileID: 735647699}
   - component: {fileID: 735647701}
-  - component: {fileID: 735647700}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -915,14 +909,6 @@ Transform:
   m_Father: {fileID: 1977346085}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &735647700
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735647698}
-  m_Enabled: 1
 --- !u!20 &735647701
 Camera:
   m_ObjectHideFlags: 0
@@ -1381,7 +1367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1092837025}
   - component: {fileID: 1092837024}
-  - component: {fileID: 1092837023}
   - component: {fileID: 1092837021}
   - component: {fileID: 1092837026}
   m_Layer: 0
@@ -1406,14 +1391,6 @@ MonoBehaviour:
   streamingSize: {x: 1920, y: 1080}
   depth: 24
   antiAliasing: 2
---- !u!81 &1092837023
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1092837020}
-  m_Enabled: 1
 --- !u!20 &1092837024
 Camera:
   m_ObjectHideFlags: 0
@@ -1464,8 +1441,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092837020}
-  m_LocalRotation: {x: -0.02296006, y: 0.9760592, z: -0.17338917, w: -0.12929617}
-  m_LocalPosition: {x: 2.45401, y: 1.4360046, z: 2.861}
+  m_LocalRotation: {x: 0.6087615, y: -0.000000059604645, z: 0.000000007450581, w: 0.7933534}
+  m_LocalPosition: {x: 0, y: 0.5844536, z: -0.17459106}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

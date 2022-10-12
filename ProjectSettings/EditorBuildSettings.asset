@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/osc-checker/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/move-osc/MoveOscScene.unity
+    guid: 34b69467e850747eeb71879fbf9d0f64
   m_configObjects: {}

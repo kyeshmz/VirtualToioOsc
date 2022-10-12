@@ -90,7 +90,7 @@ public class MoveSceneScript : MonoBehaviour
         //0.013
        
         cubeManager.cubes[0].TargetMove(113, 360, 0,0,0,Cube.TargetMoveType.RoundBeforeMove);
-        //cubeManager.cubes[1].TargetMove(870,360,180,0,0, Cube.TargetMoveType.RoundBeforeMove);
+        cubeManager.cubes[1].TargetMove(870,360,180,0,0, Cube.TargetMoveType.RoundBeforeMove);
        
     }
 

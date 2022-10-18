@@ -835,6 +835,7 @@ GameObject:
   - component: {fileID: 735647699}
   - component: {fileID: 735647701}
   - component: {fileID: 735647703}
+  - component: {fileID: 735647704}
   m_Layer: 0
   m_Name: Left Camera
   m_TagString: Untagged
@@ -890,7 +891,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 16d2999dee7d544e78d9ad1ce86d85e5, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -914,6 +915,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sourceTexture: {fileID: 0}
   _alphaSupport: 0
+--- !u!114 &735647704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735647698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2d98e5bfcdff4847ad69efa861a8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ndiName: NDI Sender
+  _keepAlpha: 0
+  _captureMethod: 2
+  _sourceCamera: {fileID: 0}
+  _sourceTexture: {fileID: 8400000, guid: 16d2999dee7d544e78d9ad1ce86d85e5, type: 2}
+  _resources: {fileID: 11400000, guid: 69304b86950074db7ba8caba75214004, type: 2}
 --- !u!1 &808306658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8138842908913535950, guid: cdb3cb207738d3b45ade7abf174b8f7a, type: 3}

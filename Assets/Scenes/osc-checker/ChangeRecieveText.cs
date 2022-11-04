@@ -19,13 +19,25 @@ public class ChangeRecieveText : MonoBehaviour
     {
         server = new OscServer(port);
         server.MessageDispatcher.AddCallback(
-            "/test/recieve",
+            "/toio/1",
             (string address, OscDataHandle data) => {
-                var stringValue = data.GetElementAsString(0);
-                var floatValue = data.GetElementAsFloat(1);
+              
+                var stringValue = data.GetElementAsInt(0);
+                var floatValue = data.GetElementAsInt(1);
                 var intValue = data.GetElementAsInt(2);
-                Debug.Log($"OscJack receive: {address} {stringValue} {floatValue} {intValue}");
-                textValue = ($"OSC recieved from {address}, with message: {stringValue}");
+                Debug.Log($"OscJack receive: {address} left {stringValue} right {floatValue} speed {intValue}");
+                textValue = ($"OSC recieved from {address}, with message: left {stringValue} right {floatValue} speed {intValue}");
+            }
+        );
+
+        server.MessageDispatcher.AddCallback(
+            "/toio/2",
+            (string address, OscDataHandle data) => {
+                var stringValue = data.GetElementAsInt(0);
+                var floatValue = data.GetElementAsInt(1);
+                var intValue = data.GetElementAsInt(2);
+                Debug.Log($"OscJack receive: {address} left {stringValue} right {floatValue} speed {intValue}");
+                textValue = ($"OSC recieved from {address}, with message: left {stringValue} right {floatValue} speed {intValue}");
             }
         );
     }

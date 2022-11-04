@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using OscJack;
 using toio;
+using UnityEngine.UI;
 public class MoveSceneScript : MonoBehaviour
 {
 
     float intervalTime = 0.05f;
     float elapsedTime = 0;
     Cube cube;
-
-         [SerializeField] int port = 4000;
+    private string textValue;
+    public Text recieveTextElement;
+    public Text sendTextElement;
+    public Text sendTextElement2;
+    [SerializeField] int recievePort = 4000;
     OscServer server;
-    public int speed;
-        CubeManager cubeManager;
 
-    public Transform mainCamera;
+    CubeManager cubeManager;
+
+    private float posX;
+    private float posY;
+
+
+    [SerializeField] string sendipAddress = "127.0.0.1";
+    [SerializeField] int sendPort = 4004;
+    OscClient client;
+
     private bool resetFlg = false;
     private int toio1Left = 0;
     private int toio1Right = 0;
@@ -31,11 +42,11 @@ public class MoveSceneScript : MonoBehaviour
 
     void OnEnable()
     {
-        server = new OscServer(port);
-       
+        server = new OscServer(recievePort);
+        client = new OscClient(sendipAddress, sendPort);
 
         server.MessageDispatcher.AddCallback(
-            "/toio/1",
+            "/toio0",
             (string address, OscDataHandle data) => {
 
                 var leftValue = data.GetElementAsInt(0);
@@ -45,12 +56,12 @@ public class MoveSceneScript : MonoBehaviour
                 toio1Left = leftValue;
                 toio1Right = rightValue;
                 toio1Speed = speedValue;
-                //textValue = ($"OSC recieved from {address}, with message: left {stringValue} right {floatValue} speed {intValue}");
+                textValue = ($"OSC recieved from {address}, with message: left {leftValue} right {rightValue} speed {speedValue}");
             }
         );
 
         server.MessageDispatcher.AddCallback(
-            "/toio/2",
+            "/toio1",
             (string address, OscDataHandle data) => {
                 var leftValue = data.GetElementAsInt(0);
                 var rightValue = data.GetElementAsInt(1);
@@ -59,7 +70,7 @@ public class MoveSceneScript : MonoBehaviour
                 toio2Left = leftValue;
                 toio2Right = rightValue;
                 toio2Speed = speedValue;
-                //textValue = ($"OSC recieved from {address}, with message: left {stringValue} right {floatValue} speed {intValue}");
+                textValue = ($"OSC recieved from {address}, with message: left {leftValue} right {rightValue} speed {speedValue}");
             }
         );
 
@@ -80,8 +91,10 @@ public class MoveSceneScript : MonoBehaviour
 
       void OnDisable()
     {
+        client.Dispose();
         server.Dispose();
         server = null;
+        client = null;
 
     }
     // Start is called before the first frame update
@@ -103,13 +116,15 @@ public class MoveSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         // Cube変数の生成が完了するまで早期リターン
+        
 
-        toio1posX = cubeManager.cubes[0].x;
-        toio1posY = cubeManager.cubes[0].y;
-
-        toio2posX = cubeManager.cubes[1].x;
-        toio2posY = cubeManager.cubes[1].y;
+        client.Send("/toio0", 0, ((int)cubeManager.cubes[0].x), ((int)cubeManager.cubes[0].y), 100);
+        client.Send("/toio1", 1, ((int)cubeManager.cubes[1].x), ((int)cubeManager.cubes[1].y), 100);
+        recieveTextElement.text = textValue;
+        sendTextElement.text = ("/toio0 " + ((int)cubeManager.cubes[0].x) + " " + ((int)cubeManager.cubes[0].y));
+        sendTextElement2.text = ("/toio1 " + ((int)cubeManager.cubes[1].x) + " "+ ((int)cubeManager.cubes[1].y));
 
         if (toio1Left != 0 && toio1Right != 0 && toio1Speed != 0)
         {
@@ -139,6 +154,7 @@ public class MoveSceneScript : MonoBehaviour
             else
             {
                 cubeManager.cubes[1].Move(toio2Left, toio2Right, toio1Speed);
+      
 
             }
             resetToio2Flags();
@@ -152,6 +168,10 @@ public class MoveSceneScript : MonoBehaviour
 
             resetFlg = false;
         }
+        
+
+      
+
 
 
     }

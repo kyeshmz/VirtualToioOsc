@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Webrtc Test</title>
+    <style>
+      video {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">Room example</h1>
+
+      <div class="room">
+        <div>
+          <button id="js-join-trigger">Join</button>
+          <button id="js-leave-trigger">Leave</button>
+
+          <div class="remote-streams" id="js-remote-streams"></div>
+        </div>
+      </div>
+      <p class="meta" id="js-meta"></p>
+    </div>
+    <script src="//cdn.webrtc.ecl.ntt.com/skyway-4.4.2.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
